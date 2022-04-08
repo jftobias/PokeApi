@@ -6,7 +6,12 @@ class PokemonsController < ApplicationController
   # GET /pokemons
   # GET /pokemons.json
   def index
-    @pokemons = Pokemon.all
+    pokemon = params[:pokemon]
+    response = HTTParty.get("https://pokeapi.co/api/v2/pokemon/#{pokemon}")
+    require 'pry'; binding.pry
+
+    @pokemon = JSON.parse(response.body, symbolize_names: true)
+    render json: @pokemon
   end
 
   # GET /pokemons/1
