@@ -2,5 +2,7 @@
 
 # Welcom controller class
 class WelcomeController < ApplicationController
-  def index;  end
+  def index
+    SavePokemon if Pokemon.count == 0
+  end
 end
