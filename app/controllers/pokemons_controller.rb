@@ -6,45 +6,14 @@ class PokemonsController < ApplicationController
   # GET /pokemons
   # GET /pokemons.json
   def index
-    pokemon = params[:pokemon]
-    response = HTTParty.get("https://pokeapi.co/api/v2/pokemon/#{pokemon}")
-    require 'pry'; binding.pry
+    @pokemons = Pokemon.all
 
-    @pokemon = JSON.parse(response.body, symbolize_names: true)
-    render json: @pokemon
+    render json: @pokemons
   end
 
   # GET /pokemons/1
   # GET /pokemons/1.json
   def show; end
-
-  # POST /pokemons
-  # POST /pokemons.json
-  def create
-    @pokemon = Pokemon.new(pokemon_params)
-
-    if @pokemon.save
-      render :show, status: :created, location: @pokemon
-    else
-      render json: @pokemon.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /pokemons/1
-  # PATCH/PUT /pokemons/1.json
-  def update
-    if @pokemon.update(pokemon_params)
-      render :show, status: :ok, location: @pokemon
-    else
-      render json: @pokemon.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /pokemons/1
-  # DELETE /pokemons/1.json
-  def destroy
-    @pokemon.destroy
-  end
 
   private
 
