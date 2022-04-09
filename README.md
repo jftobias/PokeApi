@@ -1,24 +1,49 @@
-# README
+# Pokemon Api
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This API fetches the 150 pokemons for pokeapi.co endpoint and save them to database with normalized attributes.
+## Built With
 
-Things you may want to cover:
+- Ruby v3.1.1p18
+- Rails 7.0.2.3
+- Rspec rails
+- Postgresql
 
-* Ruby version
+### Prerequisites
 
-* System dependencies
+- Ruby: 3.1.1p18
+- Rails: 7.0.2.3
 
-* Configuration
+## Getting Started
 
-* Database creation
+To clone this repository:
 
-* Database initialization
+- Copy and paste this command on your terminal: <br>
+```
+git clone https://github.com/jftobias/PokeApi.git
+```
 
-* How to run the test suite
+### Setup
 
-* Services (job queues, cache servers, search engines, etc.)
+Run bundle for install gems with the next command:
 
-* Deployment instructions
+```
+bundle install
+```
 
-* ...
+### Usage
+
+Start server with:
+
+```
+rails server
+```
+
+Open `http://localhost:3000/` in your browser.
+
+### Run tests
+
+```
+  rpsec --format documentation
+```
+---
+⌨️ with ❤️ by [jftobias](https://github.com/jftobias) 😊
