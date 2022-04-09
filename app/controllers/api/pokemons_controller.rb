@@ -8,7 +8,7 @@ module Api
     # GET /pokemons
     # GET /pokemons.json
     def index
-      @pokemons = Pokemon.all
+      params[:limit]? @pokemons = Pokemon.limit(params[:limit]) : @pokemons = Pokemon.limit(10)
 
       render json: @pokemons
     end
