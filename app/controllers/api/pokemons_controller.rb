@@ -8,7 +8,15 @@ module Api
     # GET /pokemons
     # GET /pokemons.json
     def index
-      params[:limit]? @pokemons = Pokemon.limit(params[:limit]) : @pokemons = Pokemon.limit(10)
+      fuzzy = FuzzyMatch.new(Pokemon.all, read: :name)
+
+      if params[:limit]
+        @pokemons = Pokemon.limit(params[:limit])
+      elsif params[:query]
+        @pokemons = fuzzy.find_all(params[:query])
+      else
+        @pokemons = Pokemon.limit(10)
+      end
 
       render json: @pokemons
     end

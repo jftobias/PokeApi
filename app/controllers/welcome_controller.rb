@@ -3,6 +3,6 @@
 # Welcom controller class
 class WelcomeController < ApplicationController
   def index
-    SavePokemon if Pokemon.count == 0
+    SavePokemon if Pokemon.count.zero?
   end
 end
