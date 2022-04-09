@@ -77,6 +77,9 @@ GEM
       reline (>= 0.2.7)
     digest (3.1.0)
     erubi (1.10.0)
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
+    fuzzy_match (2.1.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     httparty (0.20.0)
@@ -177,6 +180,8 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   debug
+  friendly_id (~> 5.4, >= 5.4.2)
+  fuzzy_match (~> 2.1)
   httparty (~> 0.20.0)
   jbuilder
   pg (~> 1.1)
